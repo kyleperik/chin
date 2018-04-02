@@ -23,7 +23,7 @@ var unreads = 0;
 
 function add(message) {
     var history = document.querySelector('#History');
-    history.innerHTML += message + '\n';
+    history.textContent += message + '\n';
     history.scrollTo(0, history.scrollHeight);
 }
 

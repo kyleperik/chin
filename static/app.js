@@ -21,10 +21,14 @@ function update_title() {
 var focus = true;
 var unreads = 0;
 
+function scrollToBottom() {
+    history.scrollTo(0, history.scrollHeight);
+}
+
 function add(message) {
     var history = document.querySelector('#History');
     history.textContent += message + '\n';
-    history.scrollTo(0, history.scrollHeight);
+    scrollToBottom();
 }
 
 function key(e) {
@@ -35,3 +39,5 @@ function key(e) {
         e.target.value = '';
     }
 }
+
+scrollToBottom();

@@ -19,6 +19,4 @@ def postchat(message):
     emit('chat', message, broadcast=True)
 
 if __name__ == '__main__':
-    if not os.path.exists('chat.txt'):
-        with open('chat.txt', 'w'): pass
     socketio.run(app, debug=True, host='0.0.0.0', port=5678)

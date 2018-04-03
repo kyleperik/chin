@@ -3,12 +3,14 @@
 	<script src="//cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.6/socket.io.min.js"></script>
 	<script src="{{ url_for('static', filename='app.js') }}"></script>
         <link rel="stylesheet" href="{{ url_for('static', filename='site.css') }}">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>chincam</title>
 </head>
 <body style="background-color: #333; color: white; ">
-    <div style="height: 100%; display: flex; justify-content: center; align-items: center; ">
-	<img src="https://chin.kyleperik.com/img" />
+    <div id="Root">
+	<img id="Stream" src="https://chin.kyleperik.com/img" />
 	<div id="Chat">
+            <div>Watchers: <span id="Watchers">{{ watchers }}</span></div>
 	    <input type="text" id="Name" placeholder="name"/>
 	    <div id="History">{{ chat }}</div>
 	    <input type="text" id="Message" />

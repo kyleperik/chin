@@ -7,11 +7,21 @@ window.onload = function () {
         if (!focus) unreads++;
         update_title();
     });
+
+    socket.on('watchers', function (n) {
+        document.querySelector('#Watchers').textContent = n;
+    });
+
+    window.addEventListener('beforeunload', function () {
+        socket.disconnect();
+    });
     
     document.onfocus = function () { focus = true; unreads = 0; update_title(); };
     document.onblur = function () { focus = false; };
     
     document.querySelector('#Message').onkeypress = key;
+    
+    scrollToBottom();
 };
 
 function update_title() {
@@ -22,6 +32,7 @@ var focus = true;
 var unreads = 0;
 
 function scrollToBottom() {
+    var history = document.querySelector('#History');
     history.scrollTo(0, history.scrollHeight);
 }
 
@@ -39,5 +50,3 @@ function key(e) {
         e.target.value = '';
     }
 }
-
-scrollToBottom();
